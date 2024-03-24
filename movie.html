@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Play HLS with Subtitles</title>
+</head>
+<body>
+  <video id="videoPlayer" controls></video>
+
+  <script>
+    var videoPlayer = document.getElementById('videoPlayer');
+
+    // HLS video with subtitles
+    var hlsUrl = 'https://mva1.watchsomuch.tv/7C2D4DE6-9330-490A-8C99-9106821C12DE/WSM/Ghosted.(2023).WEBRip.480p.x264.MP4-WSM/Ghosted.(2023).WEBRip.480p.x264.MP4-WatchSoMuch.mp4'; // Replace with your HLS video URL
+    var subtitleUrl = 'https://a2.watchsomuch.tv/Subs/15326988-1100711-ar.vtt'; // Replace with your subtitle URL
+
+    // Add HLS source and subtitle track
+    var hlsSource = document.createElement('source');
+    hlsSource.src = hlsUrl;
+    hlsSource.type = 'application/x-mpegURL';
+    videoPlayer.appendChild(hlsSource);
+
+    var subtitleTrack = document.createElement('track');
+    subtitleTrack.src = subtitleUrl;
+    subtitleTrack.kind = 'subtitles';
+    subtitleTrack.srclang = 'ar'; // Replace with appropriate language code
+    subtitleTrack.label = 'arabic'; // Replace with appropriate label
+    subtitleTrack.default = true;
+    videoPlayer.appendChild(subtitleTrack);
+  </script>
+</body>
+</html>
